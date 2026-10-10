@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <rect width="192" height="192" rx="36" fill="#fbf7ee" stroke="#2d3748" stroke-width="6"/>
+  <!-- Notebook lines -->
+  <line x1="20" y1="45" x2="172" y2="45" stroke="#e2e8f0" stroke-width="2"/>
+  <line x1="20" y1="85" x2="172" y2="85" stroke="#e2e8f0" stroke-width="2"/>
+  <line x1="20" y1="125" x2="172" y2="125" stroke="#e2e8f0" stroke-width="2"/>
+  <line x1="20" y1="165" x2="172" y2="165" stroke="#e2e8f0" stroke-width="2"/>
+  
+  <!-- Stack Flask -->
+  <path d="M 45 40 L 45 155 Q 45 165 55 165 L 137 165 Q 147 165 147 155 L 147 40" fill="none" stroke="#2d3748" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Stack Chips (Green, Gold, Blue) -->
+  <!-- Bottom Chip: Green -->
+  <rect x="55" y="128" width="82" height="26" rx="6" fill="#68d391" stroke="#2d3748" stroke-width="3"/>
+  <!-- Middle Chip: Gold -->
+  <rect x="55" y="94" width="82" height="26" rx="6" fill="#f6e05e" stroke="#2d3748" stroke-width="3"/>
+  <!-- Top Chip: Blue -->
+  <rect x="55" y="60" width="82" height="26" rx="6" fill="#63b3ed" stroke="#2d3748" stroke-width="3"/>
+  
+  <!-- Robot Eyes on Top Chip -->
+  <circle cx="82" cy="73" r="3" fill="#1a202c"/>
+  <circle cx="110" cy="73" r="3" fill="#1a202c"/>
+  <path d="M 91 80 Q 96 84 101 80" fill="none" stroke="#1a202c" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Top Arrow -->
+  <path d="M 96 15 L 96 35 M 90 28 L 96 35 L 102 28" fill="none" stroke="#e53e3e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

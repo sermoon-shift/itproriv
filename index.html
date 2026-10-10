@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>КиберСтек: Инженер Памяти | Хакатон ИТ-Прорыв</title>
+  
+  <meta name="description" content="Интерактивное PWA-приложение для изучения структуры данных Стек и принципа LIFO для подростков 12–17 лет.">
+  <meta name="theme-color" content="#fbf7ee">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="icons/icon-192.svg">
+  <link rel="apple-touch-icon" href="icons/icon-192.svg">
+
+  <link rel="stylesheet" href="css/paper.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="app-viewport">
+    
+    <header class="app-header">
+      <div class="brand-title">
+        <span class="brand-icon">
+          <svg class="svg-icon" viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#2d3748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </span>
+        <span>КиберСтек</span>
+      </div>
+      <div class="header-actions">
+        <div class="hud-pill xp" title="Опыт">
+          <svg class="svg-icon sm" viewBox="0 0 24 24">
+            <polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9" fill="#d69e2e" stroke="#744210" stroke-width="1.5"/>
+          </svg>
+          <span id="hud-xp-val">0</span>
+        </div>
+        <button class="icon-btn" id="btn-sound-toggle" title="Звук">
+          <svg class="svg-icon sm" viewBox="0 0 24 24">
+            <path d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" stroke="#2d3748" stroke-width="2" stroke-linecap="round" fill="none"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="screen-welcome" class="screen active">
+      <div class="text-center" style="margin-top: 10px;">
+        <span class="badge primary">Хакатон «ИТ-Прорыв» • Мобильная разработка</span>
+        <h1 style="margin: 12px 0 6px;">КиберСтек: Инженер Памяти</h1>
+        <p class="text-muted" style="font-size: 1.1rem;">
+          Интерактивный практикум по структуре данных <strong>Стек</strong> и алгоритмическому принципу <strong>LIFO</strong>.
+        </p>
+      </div>
+
+      <div class="card" style="margin: 18px 0; text-align: center; background: #fffef0;">
+        <div class="card-body">
+          <div style="margin: 10px 0;">
+            <svg style="width: 70px; height: 70px;" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#2d3748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </div>
+          <h3 style="margin-bottom: 4px;">Лаборатория Стек-Систем</h3>
+          <p class="text-muted" style="font-size: 0.95rem; margin-bottom: 0;">
+            3 коротких урока • Интерактивные задания • Робот-помощник Байт
+          </p>
+        </div>
+      </div>
+
+      <button id="btn-pwa-install" class="paper-btn btn-warning btn-block" style="display: none; margin-bottom: 12px;">
+        Установить приложение на телефон
+      </button>
+
+      <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 16px;">
+        <button class="paper-btn btn-primary btn-large btn-block" data-goto="screen-map">
+          Начать обучение
+        </button>
+        <button class="paper-btn btn-secondary btn-block" data-goto="screen-onboarding">
+          Как устроено обучение? (Вводный гайд)
+        </button>
+      </div>
+
+      <div class="sticky-note" style="margin-top: 24px;">
+        <small><strong>Разработано командой школьников:</strong><br>
+        Чистый код на HTML, CSS и JS • PWA работает офлайн • Встроенный помощник без сбора персональных данных.</small>
+      </div>
+    </main>
+
+    <section id="screen-onboarding" class="screen">
+      <h2>Вводный сценарий</h2>
+      <p class="text-muted">Краткий обзор исследовательского модуля КиберСтек</p>
+
+      <div class="card">
+        <div class="card-body">
+          <h4>1. Что изучается?</h4>
+          <p>Базовая структура данных <strong>Стек</strong> и принцип <strong>LIFO</strong> (Last In, First Out). Это основа истории действий Ctrl+Z, кнопок «Назад» в браузере и парсинга скобок в компиляторах.</p>
+
+          <h4 style="margin-top: 14px;">2. Как устроен маршрут?</h4>
+          <p>Модуль включает <strong>3 урока</strong> по 3–5 минут. Каждый урок содержит:</p>
+          <ul>
+            <li>Краткую теорию без лишней терминологии;</li>
+            <li>Интерактивную песочницу;</li>
+            <li>Практическое задание.</li>
+          </ul>
+
+          <h4 style="margin-top: 14px;">3. Прогресс и достижения</h4>
+          <p>За правильные ответы начисляются очки опыта (XP), открываются инженерные ранги и бейджи.</p>
+
+          <h4 style="margin-top: 14px;">4. Помощник Байт</h4>
+          <p>Кнопка в правом нижнем углу открывает диалог с роботом Байтом. Он ответит на вопросы по теме урока и подскажет, если возникли трудности.</p>
+        </div>
+      </div>
+
+      <button class="paper-btn btn-primary btn-block btn-large" data-goto="screen-map">
+        К карте уроков
+      </button>
+    </section>
+
+    <section id="screen-map" class="screen">
+      <div style="display: flex; justify-content: space-between; align-items: baseline;">
+        <h2>Маршрут обучения</h2>
+        <span class="badge warning" id="hud-rank-val">Стажёр Блокнота</span>
+      </div>
+
+      <div style="margin: 10px 0 16px;">
+        <div style="display: flex; justify-content: space-between; font-size: 0.95rem; margin-bottom: 4px;">
+          <span class="text-muted">Прогресс модуля:</span>
+          <strong id="module-progress-text">0 из 3 уроков пройдено (0%)</strong>
+        </div>
+        <div class="progress">
+          <div class="bar primary" id="module-progress-bar" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <div id="lessons-list"></div>
+
+      <div style="margin-top: 24px;">
+        <h3>Блокнот наград</h3>
+        <p class="text-muted" style="font-size: 0.9rem;">Достижения за решение практических задач:</p>
+        <div class="badges-grid" id="badges-collection-grid"></div>
+      </div>
+
+      <div style="margin-top: 20px; text-align: center;">
+        <button class="paper-btn btn-secondary btn-small" id="btn-reset-progress">
+          Сбросить прогресс для повторного прохождения
+        </button>
+      </div>
+    </section>
+
+    <section id="screen-lesson" class="screen">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <button class="paper-btn btn-secondary btn-small" data-goto="screen-map">
+          Назад к карте
+        </button>
+        <span class="badge primary" id="lesson-current-indicator">Урок 1 из 3</span>
+      </div>
+
+      <h2 id="lesson-title" style="margin-bottom: 12px;">Урок</h2>
+
+      <div class="robot-section">
+        <div class="robot-avatar">
+          <svg viewBox="0 0 24 24">
+            <rect x="4" y="6" width="16" height="12" rx="2" stroke="#2d3748" stroke-width="2" fill="none"/>
+            <line x1="12" y1="2" x2="12" y2="6" stroke="#2d3748" stroke-width="2"/>
+            <circle cx="9" cy="11" r="1.5" fill="#2d3748"/>
+            <circle cx="15" cy="11" r="1.5" fill="#2d3748"/>
+            <line x1="9" y1="15" x2="15" y2="15" stroke="#2d3748" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="speech-bubble">
+          <strong>Робот Байт:</strong><br>
+          «Изучи теорию ниже. Если появятся вопросы — нажми кнопку внизу экрана.»
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body" id="lesson-theory-content"></div>
+      </div>
+
+      <div id="lesson-sandbox-wrap" class="stack-simulator" style="display: none;">
+        <h4 class="text-center" style="margin-bottom: 4px;">Интерактивная песочница LIFO</h4>
+        <p class="text-center text-muted" style="font-size: 0.9rem;">
+          Команды <code>PUSH</code> (положить) и <code>POP</code> (забрать):
+        </p>
+
+        <div class="stack-container-wrap">
+          <div class="stack-flask" id="sandbox-flask"></div>
+          <div class="stack-pointer">
+            <span class="arrow">◀</span>
+            <span>TOP (Вершина)</span>
+          </div>
+        </div>
+
+        <div class="stack-controls">
+          <button class="paper-btn btn-primary btn-small" id="btn-sandbox-push-blue">+ PUSH Синий</button>
+          <button class="paper-btn btn-warning btn-small" id="btn-sandbox-push-gold">+ PUSH Золотой</button>
+          <button class="paper-btn btn-danger btn-small" id="btn-sandbox-pop">- POP (Забрать)</button>
+        </div>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <button class="paper-btn btn-success btn-large btn-block" onclick="App.startLessonTask()">
+          Перейти к практическому заданию
+        </button>
+      </div>
+    </section>
+
+    <section id="screen-task" class="screen">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <button class="paper-btn btn-secondary btn-small" data-goto="screen-lesson">
+          Назад к теории
+        </button>
+        <span class="badge warning">Практика</span>
+      </div>
+
+      <h2 id="task-screen-title">Практическое задание</h2>
+      <div id="task-description"></div>
+
+      <div id="format-stack-builder" class="task-view-format" style="display: none;">
+        <div class="stack-simulator">
+          <div class="stack-container-wrap">
+            <div class="stack-flask" id="task1-flask"></div>
+            <div class="stack-pointer">
+              <span class="arrow">◀</span>
+              <span>Вершина</span>
+            </div>
+          </div>
+          <div class="stack-controls">
+            <button class="paper-btn btn-primary btn-small" id="btn-task1-push-blue">+ PUSH Синий</button>
+            <button class="paper-btn btn-warning btn-small" id="btn-task1-push-gold">+ PUSH Золотой</button>
+            <button class="paper-btn btn-success btn-small" id="btn-task1-push-green">+ PUSH Зеленый</button>
+            <button class="paper-btn btn-danger btn-small" id="btn-task1-pop">- POP (Снять)</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="format-sequence-order" class="task-view-format" style="display: none;">
+        <p class="text-muted" style="font-size: 0.95rem;">
+          Нажимай на действия по очереди, чтобы выстроить правильную цепочку отмены от первого до последнего шага:
+        </p>
+        <div class="order-list" id="task2-items-list"></div>
+      </div>
+
+      <div id="format-syntax-detective" class="task-view-format" style="display: none;">
+        <div id="task3-options-list"></div>
+      </div>
+
+      <div id="task-hint-box" class="hint-box"></div>
+      <div id="task-feedback" class="feedback-box"></div>
+
+      <div style="display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap;">
+        <button class="paper-btn btn-primary btn-large btn-block" id="btn-verify-task">
+          Проверить ответ
+        </button>
+        <button class="paper-btn btn-success btn-large btn-block" id="btn-task-next" style="display: none;">
+          Следующий урок
+        </button>
+        <button class="paper-btn btn-secondary btn-block" id="btn-show-hint">
+          Нужна подсказка?
+        </button>
+      </div>
+    </section>
+
+    <section id="screen-finish" class="screen">
+      <div class="text-center" style="margin-top: 10px;">
+        <div style="margin: 10px 0;">
+          <svg style="width: 64px; height: 64px;" viewBox="0 0 24 24">
+            <path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c0 2 3 3 6 3s6-1 6-3v-5" stroke="#2d3748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <h2>Модуль успешно завершён</h2>
+        <p class="text-muted">Все 3 урока пройдены, основы LIFO освоены.</p>
+      </div>
+
+      <div class="certificate-box">
+        <div class="certificate-stamp">ОТК: СТЕК</div>
+        <small style="letter-spacing: 2px; text-transform: uppercase; color: #718096;">Сертификат Выпускника</small>
+        <h3 style="margin: 8px 0; color: #1a365d;">ИНЖЕНЕР СТЕК-СИСТЕМ</h3>
+        <p style="font-size: 1rem; margin-bottom: 8px;">
+          Подтверждается успешное освоение модуля <strong>«Стек и принцип LIFO»</strong> в рамках хакатона «ИТ-Прорыв».
+        </p>
+        <div style="margin: 12px 0;">
+          <span>Звание: </span><strong id="finish-rank-title">Мастер LIFO</strong><br>
+          <span>Набрано опыта: </span><strong id="finish-xp-total">210</strong> XP
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h4>Открытые бейджи:</h4>
+          <div id="finish-badges-list" style="display: flex; flex-wrap: wrap; gap: 6px;"></div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 16px;">
+        <button class="paper-btn btn-primary btn-large btn-block" data-goto="screen-map">
+          Вернуться к карте уроков
+        </button>
+        <button class="paper-btn btn-secondary btn-block" id="btn-finish-replay" onclick="App.openLesson(1)">
+          Пройти модуль заново
+        </button>
+      </div>
+    </section>
+
+    <div id="bot-drawer" class="bot-drawer">
+      <div class="bot-header">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <svg class="svg-icon" viewBox="0 0 24 24">
+            <rect x="4" y="6" width="16" height="12" rx="2" stroke="#2d3748" stroke-width="2" fill="none"/>
+            <line x1="12" y1="2" x2="12" y2="6" stroke="#2d3748" stroke-width="2"/>
+            <circle cx="9" cy="11" r="1.5" fill="#2d3748"/>
+            <circle cx="15" cy="11" r="1.5" fill="#2d3748"/>
+            <line x1="9" y1="15" x2="15" y2="15" stroke="#2d3748" stroke-width="2"/>
+          </svg>
+          <div>
+            <strong>Робот Байт</strong><br>
+            <small class="text-success" style="font-size: 0.75rem;">В сети (Локальный ассистент)</small>
+          </div>
+        </div>
+        <button class="icon-btn" id="btn-close-bot" style="width: 32px; height: 32px; font-size: 1rem;">✕</button>
+      </div>
+
+      <div id="bot-messages" class="bot-messages">
+        <div class="msg bot">
+          Привет! Я робот Байт. Помогу разобраться со стеком, операциями PUSH и POP и практикой. Спроси меня что угодно по теме урока.
+        </div>
+      </div>
+
+      <div class="bot-quick-chips">
+        <span class="quick-chip" data-ask="Что такое LIFO?">Что такое LIFO?</span>
+        <span class="quick-chip" data-ask="Дай подсказку к текущему уроку">Подсказка к уроку</span>
+        <span class="quick-chip" data-ask="Где стек применяется в играх?">Стек в играх</span>
+        <span class="quick-chip" data-ask="Что такое Stack Overflow?">Stack Overflow</span>
+      </div>
+
+      <div class="bot-input-bar">
+        <input type="text" id="bot-input" placeholder="Задай вопрос Байту..." autocomplete="off">
+        <button class="paper-btn btn-primary btn-small" id="btn-send-bot">➔</button>
+      </div>
+    </div>
+
+    <button class="floating-bot-btn" id="btn-open-bot" title="Открыть диалог с роботом Байтом">
+      <svg viewBox="0 0 24 24">
+        <rect x="4" y="6" width="16" height="12" rx="2" stroke="#2d3748" stroke-width="2" fill="none"/>
+        <line x1="12" y1="2" x2="12" y2="6" stroke="#2d3748" stroke-width="2"/>
+        <circle cx="9" cy="11" r="1.5" fill="#2d3748"/>
+        <circle cx="15" cy="11" r="1.5" fill="#2d3748"/>
+        <line x1="9" y1="15" x2="15" y2="15" stroke="#2d3748" stroke-width="2"/>
+      </svg>
+    </button>
+
+  </div>
+
+  <script src="js/audio.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/lessons.js"></script>
+  <script src="js/bot.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

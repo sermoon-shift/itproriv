@@ -1,0 +1,354 @@
+/* ==========================================================================
+   PaperCSS v1.9.2 - The Less Formal CSS Framework
+   Hand-drawn styling for playful & interactive learning
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Neucha&family=Patrick+Hand&family=Fira+Code:wght@400;600&display=swap");
+
+:root {
+  --primary: #2d3748;
+  --secondary: #0b74d5;
+  --success: #2f855a;
+  --warning: #d69e2e;
+  --danger: #c53030;
+  --muted: #718096;
+  --bg-paper: #fefcf7;
+  --bg-card: #ffffff;
+  --primary-light: #edf2f7;
+  --secondary-light: #ebf8ff;
+  --success-light: #f0fff4;
+  --warning-light: #fffff0;
+  --danger-light: #fff5f5;
+  --shadow-color: rgba(45, 55, 72, 0.18);
+  --shadow-hover: rgba(45, 55, 72, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-paper);
+  color: var(--primary);
+  font-family: 'Neucha', 'Comic Sans MS', cursive, -apple-system, sans-serif;
+  font-size: 19px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Patrick Hand', 'Neucha', cursive, sans-serif;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #1a202c;
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.4rem; }
+h4 { font-size: 1.2rem; }
+h5 { font-size: 1.05rem; }
+
+p {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+}
+
+code, kbd, pre {
+  font-family: 'Fira Code', Consolas, Monaco, monospace;
+}
+
+code {
+  background: #edf2f7;
+  border: 1px dashed #a0aec0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #c53030;
+}
+
+pre {
+  background: #2d3748;
+  color: #f7fafc;
+  padding: 12px 16px;
+  border: 2px solid #1a202c;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  border-bottom-right-radius: 225px 15px;
+  border-bottom-left-radius: 15px 255px;
+  overflow-x: auto;
+  font-size: 0.85em;
+  line-height: 1.4;
+}
+
+/* --- Container & Grid System --- */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.container-xs {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.col {
+  flex: 1 1 0;
+  padding: 8px;
+}
+
+.col-12 { flex: 0 0 100%; max-width: 100%; padding: 8px; }
+.col-6 { flex: 0 0 50%; max-width: 50%; padding: 8px; }
+.col-4 { flex: 0 0 33.333%; max-width: 33.333%; padding: 8px; }
+.col-3 { flex: 0 0 25%; max-width: 25%; padding: 8px; }
+
+@media (max-width: 600px) {
+  .col-6, .col-4, .col-3 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+.flex-center { justify-content: center; align-items: center; }
+.flex-spaces { justify-content: space-around; }
+.flex-edges { justify-content: space-between; }
+.flex-middle { align-items: center; }
+
+/* --- Hand-drawn Paper Borders --- */
+.border,
+.card,
+.paper-btn,
+button,
+.alert,
+.badge,
+.paper-box {
+  border: 2px solid var(--primary);
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  border-bottom-right-radius: 225px 15px;
+  border-bottom-left-radius: 15px 255px;
+}
+
+.border-2 {
+  border-top-left-radius: 125px 25px;
+  border-top-right-radius: 10px 205px;
+  border-bottom-right-radius: 20px 205px;
+  border-bottom-left-radius: 185px 25px;
+}
+
+.border-3 {
+  border-top-left-radius: 15px 225px;
+  border-top-right-radius: 255px 15px;
+  border-bottom-right-radius: 15px 255px;
+  border-bottom-left-radius: 225px 15px;
+}
+
+/* --- Paper Cards --- */
+.card {
+  background-color: var(--bg-card);
+  box-shadow: 6px 12px 18px -8px var(--shadow-color);
+  margin-bottom: 1.2rem;
+  transition: all 200ms ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translate3d(0, -2px, 0);
+  box-shadow: 4px 10px 14px -4px var(--shadow-hover);
+}
+
+.card-header {
+  padding: 10px 16px;
+  border-bottom: 2px dashed #cbd5e0;
+  background-color: rgba(237, 242, 247, 0.5);
+  font-weight: 700;
+}
+
+.card-body {
+  padding: 14px 16px;
+}
+
+.card-footer {
+  padding: 10px 16px;
+  border-top: 2px dashed #cbd5e0;
+  background-color: rgba(237, 242, 247, 0.3);
+}
+
+/* --- Paper Buttons --- */
+.paper-btn,
+button,
+[type="button"] {
+  background-color: #ffffff;
+  color: var(--primary);
+  display: inline-block;
+  cursor: pointer;
+  padding: 0.6rem 1.1rem;
+  font-family: 'Patrick Hand', 'Neucha', cursive, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 5px 8px 12px -5px var(--shadow-color);
+  transition: all 180ms ease;
+  outline: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.paper-btn:hover,
+button:hover {
+  transform: translate3d(0, 2px, 0);
+  box-shadow: 2px 4px 6px -3px var(--shadow-hover);
+}
+
+.paper-btn:active,
+button:active {
+  transform: translate3d(0, 4px, 0);
+  box-shadow: 1px 2px 3px -1px var(--shadow-hover);
+}
+
+.paper-btn.btn-block,
+button.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.paper-btn.btn-primary,
+button.btn-primary {
+  background-color: #3182ce;
+  color: #ffffff;
+  border-color: #1a365d;
+}
+
+.paper-btn.btn-success,
+button.btn-success {
+  background-color: #38a169;
+  color: #ffffff;
+  border-color: #1c4532;
+}
+
+.paper-btn.btn-warning,
+button.btn-warning {
+  background-color: #ecc94b;
+  color: #744210;
+  border-color: #744210;
+}
+
+.paper-btn.btn-danger,
+button.btn-danger {
+  background-color: #e53e3e;
+  color: #ffffff;
+  border-color: #742a2a;
+}
+
+.paper-btn.btn-secondary,
+button.btn-secondary {
+  background-color: #edf2f7;
+  color: #2d3748;
+  border-color: #4a5568;
+}
+
+.paper-btn.btn-small,
+button.btn-small {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.95rem;
+}
+
+.paper-btn.btn-large,
+button.btn-large {
+  padding: 0.85rem 1.6rem;
+  font-size: 1.35rem;
+}
+
+.paper-btn[disabled],
+button[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* --- Badges --- */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  background-color: #edf2f7;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+}
+
+.badge.primary { background-color: #bee3f8; color: #2b6cb0; border-color: #2b6cb0; }
+.badge.success { background-color: #c6f6d5; color: #22543d; border-color: #22543d; }
+.badge.warning { background-color: #fefcbf; color: #744210; border-color: #744210; }
+.badge.danger { background-color: #fed7d7; color: #742a2a; border-color: #742a2a; }
+
+/* --- Progress Bars --- */
+.progress {
+  height: 1.4rem;
+  width: 100%;
+  background-color: #edf2f7;
+  border: 2px solid var(--primary);
+  border-top-left-radius: 250px 15px;
+  border-top-right-radius: 25px 80px;
+  border-bottom-right-radius: 15px 105px;
+  border-bottom-left-radius: 20px 115px;
+  overflow: hidden;
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.progress .bar {
+  height: 100%;
+  background-color: #48bb78;
+  border-right: 2px solid var(--primary);
+  transition: width 0.35s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+.progress .bar.primary { background-color: #4299e1; }
+.progress .bar.warning { background-color: #ecc94b; }
+
+/* --- Alerts --- */
+.alert {
+  padding: 12px 16px;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  border-width: 2px;
+}
+
+.alert-primary { background-color: #ebf8ff; border-color: #3182ce; color: #2b6cb0; }
+.alert-success { background-color: #f0fff4; border-color: #38a169; color: #22543d; }
+.alert-warning { background-color: #fffff0; border-color: #d69e2e; color: #744210; }
+.alert-danger { background-color: #fff5f5; border-color: #e53e3e; color: #742a2a; }
+
+/* --- Text utilities --- */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-muted { color: var(--muted); }
+.text-success { color: var(--success); }
+.text-danger { color: var(--danger); }
+.text-warning { color: var(--warning); }
+.text-primary { color: var(--secondary); }
